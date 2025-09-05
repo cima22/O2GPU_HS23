@@ -4,11 +4,11 @@ This repository provides the necessary files to compile and run the ALICE GPU wo
 ### Build
 To build, it is necessary to specify a backend (either `CUDA` or `HIP`) and one or more GPU architectures for which to build the benchmark:
 ```
-docker run  -d --name standalone_benchmark -v /cvmfs:/cvmfs alice_gpu_hs23 --backend [CUDA/HIP]  --arch ["arch1;arch2;..."]
+docker run -d --name standalone_benchmark -v /cvmfs:/cvmfs alice_gpu_hs23 --backend [CUDA/HIP] --arch ["arch1;arch2;..."]
 ```
 Example for building for Nvidia A100 GPU (sm_80):
 ```
-docker run -d --name standalone_benchmark -v /cvmfs:/cvmfs alice_gpu_hs23 --backend CUDA  --arch 80
+docker run -d --name standalone_benchmark -v /cvmfs:/cvmfs alice_gpu_hs23 --backend CUDA --arch 80
 ```
 Optionally, a backend for `OpenCL` is also available.
 ### Run
