@@ -1,1 +1,2 @@
-o2-pbpb-50kHz-32/
+o2-pbpb-50kHz-32/*
+!o2-pbpb-50kHz-32/.gitkeep
