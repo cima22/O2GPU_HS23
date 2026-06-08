@@ -1,7 +1,6 @@
---- original.config.cmake	2025-07-24 09:50:38.142536877 +0200
-+++ edited.config.cmake	2025-07-24 10:28:55.476835797 +0200
-@@ -12,18 +12,18 @@
- # This is the configuration file for the standalone build
+--- a/O2/GPU/GPUTracking/Standalone/cmake/config.cmake
++++ b/O2/GPU/GPUTracking/Standalone/cmake/config.cmake
+@@ -13,17 +13,17 @@
  # Its options do not affect the O2 build !!!!
 
 -set(ENABLE_CUDA AUTO)
@@ -14,27 +13,25 @@
  set(GPUCA_CONFIG_FMT 1)
  set(GPUCA_CONFIG_ROOT 1)
  set(GPUCA_CONFIG_ONNX 0)
--set(GPUCA_BUILD_EVENT_DISPLAY 1)
--set(GPUCA_BUILD_EVENT_DISPLAY_FREETYPE 1)
--set(GPUCA_BUILD_EVENT_DISPLAY_VULKAN 1)
--set(GPUCA_BUILD_EVENT_DISPLAY_WAYLAND 1)
--set(GPUCA_BUILD_EVENT_DISPLAY_QT 1)
-+#set(GPUCA_BUILD_EVENT_DISPLAY 1)
-+#set(GPUCA_BUILD_EVENT_DISPLAY_FREETYPE 1)
-+#set(GPUCA_BUILD_EVENT_DISPLAY_VULKAN 1)
-+#set(GPUCA_BUILD_EVENT_DISPLAY_WAYLAND 1)
-+#set(GPUCA_BUILD_EVENT_DISPLAY_QT 1)
- set(GPUCA_CONFIG_GL3W 0)
- set(GPUCA_CONFIG_O2 1)
- set(GPUCA_BUILD_DEBUG 0)
-@@ -31,8 +31,8 @@
- set(GPUCA_DETERMINISTIC_MODE 0)             # OFF / NO_FAST_MATH / OPTO2 / GPU / WHOLEO2
- #set(GPUCA_CUDA_GCCBIN c++-14)
- #set(GPUCA_OPENCL_CLANGBIN clang-20)
--set(HIP_AMDGPUTARGET "default")             # "gfx906;gfx908;gfx90a"
--set(CUDA_COMPUTETARGET "default")           # 86 89
-+#set(HIP_AMDGPUTARGET "default")             # "gfx906;gfx908;gfx90a"
-+#set(CUDA_COMPUTETARGET "default")           # 86 89
- #set(GPUCA_CUDA_COMPILE_MODE perkernel)     # onefile / perkernel / rtc
- #set(GPUCA_HIP_COMPILE_MODE perkernel)
- #set(GPUCA_RTC_NO_COMPILED_KERNELS 1)
+-set(GPUCA_BUILD_EVENT_DISPLAY 1)              # Enable compilation of event display
+-set(GPUCA_BUILD_EVENT_DISPLAY_FREETYPE 1)     # Use FreeType library to render fonts for event display
+-set(GPUCA_BUILD_EVENT_DISPLAY_VULKAN 1)       # Enable Vulkan backend for event display (otherwise only OpenGL / Win32)
+-set(GPUCA_BUILD_EVENT_DISPLAY_WAYLAND 1)      # Enable native wayland frontend for event display
+-set(GPUCA_BUILD_EVENT_DISPLAY_QT 1)           # Use QT for Event Display GUI
++#set(GPUCA_BUILD_EVENT_DISPLAY 1)              # Enable compilation of event display
++#set(GPUCA_BUILD_EVENT_DISPLAY_FREETYPE 1)     # Use FreeType library to render fonts for event display
++#set(GPUCA_BUILD_EVENT_DISPLAY_VULKAN 1)       # Enable Vulkan backend for event display (otherwise only OpenGL / Win32)
++#set(GPUCA_BUILD_EVENT_DISPLAY_WAYLAND 1)      # Enable native wayland frontend for event display
++#set(GPUCA_BUILD_EVENT_DISPLAY_QT 1)           # Use QT for Event Display GUI
+ set(GPUCA_CONFIG_GL3W 0)                      # Use GL3W instead of glew
+ set(GPUCA_CONFIG_O2 1)                        # Compile for O2 data, 0 for Run 2 data
+ set(GPUCA_BUILD_DEBUG 0)                      # Enable debug mode (-O0, -ggdb, enable asserts)
+@@ -34,6 +34,6 @@
+ #set(GPUCA_CUDA_GCCBIN c++-14)                # Override which GCC to use for CUDA
+ #set(GPUCA_OPENCL_CLANGBIN clang-20)          # Override which clang to use for OpenCL
+-set(HIP_AMDGPUTARGET "default")               # Set AMD GPU tragets to compile for: e.g. "gfx906;gfx908;gfx90a"
+-set(CUDA_COMPUTETARGET "default")             # Set NVIDIA GPU targets to compile for: e.g. "89;120"
++#set(HIP_AMDGPUTARGET "default")               # Set AMD GPU tragets to compile for: e.g. "gfx906;gfx908;gfx90a"
++#set(CUDA_COMPUTETARGET "default")             # Set NVIDIA GPU targets to compile for: e.g. "89;120"
+ #set(GPUCA_CUDA_COMPILE_MODE perkernel)       # Mode to compile kernels for CUDA: onefile / perkernel / rtc
+ #set(GPUCA_HIP_COMPILE_MODE perkernel)        # Mode to compile kernels for HIP:  onefile / perkernel / rtc
