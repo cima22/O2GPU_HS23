@@ -8,7 +8,15 @@ module load boost/v1.90.0-alice1-2 CMake/v4.1.4-2 Clang/v20.1.7-20 ninja/fortran
             
 cd /alice_hs23/standalone
 
-BENCH_CONF="-e o2-pbpb-50kHz-32 -g --memSize 15000000000 --preloadEvents --runs 5"
+BACKEND_FLAG="-g"
+while getopts "c" opt; do
+    case $opt in
+        c) BACKEND_FLAG="-c" ;;
+        *) echo "Usage: $0 [-c]" >&2; exit 1 ;;
+    esac
+done
+
+BENCH_CONF="-e o2-pbpb-50kHz-32 $BACKEND_FLAG --memSize 15000000000 --preloadEvents --runs 5"
 RTC_CONF="--RTCenable 1 --RTCcacheOutput 1 --RTCoptConstexpr 1 --RTCcompilePerKernel 1"
 
 ./ca --sync $BENCH_CONF $RTC_CONF 2>&1 | tee syncProcessing.log

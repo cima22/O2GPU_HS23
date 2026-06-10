@@ -1,0 +1,5 @@
+# Event data is downloaded at build time (see Dockerfile DATA_URL), so keep the
+# local ~2 GB dumps out of the build context.
+o2-pbpb-50kHz-32/
+
+.git/

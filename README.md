@@ -1,6 +1,12 @@
 # ALICE GPU workload for HEPScore23
 This repository provides the necessary files to compile and run the ALICE GPU workload for HS23.
 ## Quickstart
+### Build Docker image
+The event data (~2 GB) is too large for git, so the image build downloads it from a [CERNBox](https://cernbox.cern.ch) public link:
+```
+docker build -t alice_gpu_hs23 .
+```
+If the data is hosted elsewhere, override the source with `--build-arg DATA_URL=<url-to-o2-pbpb-50kHz-32.tar>` (the tarball must contain a top-level `o2-pbpb-50kHz-32/` directory).
 ### Build
 To build, it is necessary to specify a backend (either `CUDA` or `HIP`) and one or more GPU architectures for which to build the benchmark:
 ```
@@ -55,6 +61,7 @@ The `run.sh` script executes the benchmark. It performs the following steps:
    - RTC is skipped, as asynchronous reconstruction does not use it.
    - Loads the dump file and executes the *synchronous* and *asynchronous* parts **5 times**.
 
+Eventually, by passing `-c` flag, the whole execution happens on CPU instead: `docker exec -it standalone_benchmark ./run.sh -c`
 **Note:** The benchmark uses 1 GPU and 1 CPU core to steer the execution.
 
 ## HS23 metric

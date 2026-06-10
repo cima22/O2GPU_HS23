@@ -15,7 +15,11 @@ COPY run.sh run.sh
 
 COPY cmake.patch cmake.patch
 
-COPY o2-pbpb-50kHz-32 standalone/events/o2-pbpb-50kHz-32
+# Event data is too large for git, so it is downloaded at build time from a CERNBox public link. Override with --build-arg DATA_URL=<url> if it moves.
+ARG DATA_URL=https://cernbox.cern.ch/s/CG0hOekKzLcd43s/download
+RUN curl -fSL "$DATA_URL" -o /tmp/data.tar && \
+    tar -xf /tmp/data.tar -C standalone/events && \
+    rm /tmp/data.tar
 
 RUN chmod +x entrypoint.sh run.sh
 
