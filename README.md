@@ -61,7 +61,7 @@ The `run.sh` script executes the benchmark. It performs the following steps:
    - RTC is skipped, as asynchronous reconstruction does not use it.
    - Loads the dump file and executes the *synchronous* and *asynchronous* parts **5 times**.
 
-Eventually, by passing `-c` flag, the whole execution happens on CPU instead: `docker exec -it standalone_benchmark ./run.sh -c`
+Eventually, by passing `-c` flag, the whole execution happens on CPU instead: `docker exec -it standalone_benchmark ./run.sh -c` \
 **Note:** The benchmark uses 1 GPU and 1 CPU core to steer the execution.
 
 ## HS23 metric
@@ -74,13 +74,13 @@ docker cp standalone_benchmark:/alice_hs23/standalone /path/to/local/standalone
 ```
 2. Set the following env variables:
 ```
-export O2_RELEASE=daily-20250719-0000
 export MODULEPATH=/cvmfs/alice.cern.ch/etc/toolchain/modulefiles/el9-x86_64:/cvmfs/alice.cern.ch/el9-x86_64/Modules/modulefiles:$MODULEPATH
 export LD_LIBRARY_PATH=/path/to/local/standalone:$LD_LIBRARY_PATH
 ```
 3. Load the modules from `CVMFS`:
 ```
-module load O2/"$O2_RELEASE"-1 boost/v1.83.0-alice2-45 CMake/v3.31.6-4 Clang/v18.1.8-22 ninja/fortran-v1.11.1.g9-12 ROOT/v6-32-06-alice9-3
+module load boost/v1.90.0-alice1-2 CMake/v4.1.4-2 Clang/v20.1.7-20 ninja/fortran-v1.11.1.g9-25 ROOT/v6-36-10-alice1-1 \
+            Vc/1.4.5-19 fmt/11.1.2-21 ms_gsl/4.2.1-12 TBB/v2022.3.0-11 ONNXRuntime/v1.22.0-1 GLFW/3.4-5
 ```
 4. Launch the benchmark via the `./ca` executable.
 
