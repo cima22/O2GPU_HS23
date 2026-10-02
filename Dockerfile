@@ -13,6 +13,8 @@ COPY entrypoint.sh entrypoint.sh
 
 COPY run.sh run.sh
 
+COPY score.sh score.sh
+
 COPY cmake.patch cmake.patch
 
 # Event data is too large for git, so it is downloaded at build time from a CERNBox public link. Override with --build-arg DATA_URL=<url> if it moves.
