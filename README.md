@@ -54,18 +54,24 @@ The `entrypoint.sh` script builds the benchmark software. It performs the follow
 ## `run.sh`
 The `run.sh` script executes the benchmark. It performs the following steps:
 1. Loads the dependencies from `CVMFS`
-2. Executes the benchmark in `--sync` mode:
+2. If `--sync` is given, executes the benchmark in `--sync` mode:
    - Takes in input the TF dump present in the folder `o2-pbpb-50kHz-32`. It contains the dump from a simulated TF with Pb-Pb interactions at 50 kHz. 
    - During data taking, the GPU source code is *run-time compiled* to enable further compiler optimisations. The standalone benchmark has already generated the *RTC cache* during build, so the executable simply loads the cache, reads the dump, and performs tracking **5 times**.
 3. Executes the benchmark in `--syncAsync` mode:
    - RTC is skipped, as asynchronous reconstruction does not use it.
-   - Loads the dump file and executes the *synchronous* and *asynchronous* parts **5 times**.
+   - Loads the dump file and executes the *synchronous* and *asynchronous* parts **10 times**.
 
 Eventually, by passing `-c` flag, the whole execution happens on CPU instead: `docker exec -it standalone_benchmark ./run.sh -c` \
 **Note:** The benchmark uses 1 GPU and 1 CPU core to steer the execution.
 
 ## HS23 metric
-TBD
+ `tracks/s`: number of reconstructed tracks per second. After executing `run.sh`,  `score.sh` can be run to evaluate the score for the offline (asynchrnous) processing only. Example:
+```
+docker exec -it standalone_benchmark ./score.sh
+avg tracks: 542571.4
+avg time:   2.367127 s
+score:      229211 tracks/s
+```
 
 ## Run outside the container
 1. Copy the `standalone` folder:
