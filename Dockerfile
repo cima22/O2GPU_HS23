@@ -17,6 +17,9 @@ COPY score.sh score.sh
 
 COPY cmake.patch cmake.patch
 
+COPY rdna_warp_size.patch /alice_hs23/rdna_warp_size.patch
+RUN cd /alice_hs23/O2 && patch -p1 --forward < /alice_hs23/rdna_warp_size.patch
+
 # Event data is too large for git, so it is downloaded at build time from a CERNBox public link. Override with --build-arg DATA_URL=<url> if it moves.
 ARG DATA_URL=https://cernbox.cern.ch/s/CG0hOekKzLcd43s/download
 RUN curl -fSL "$DATA_URL" -o /tmp/data.tar && \

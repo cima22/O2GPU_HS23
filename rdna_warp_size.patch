@@ -1,0 +1,9 @@
+--- a/GPU/GPUTracking/Definitions/Parameters/GPUParameters.csv
++++ b/GPU/GPUTracking/Definitions/Parameters/GPUParameters.csv
+@@ -1,3 +1,3 @@
+-GPUTPCCFDecodeZS,"[128, 4]",,"[64, 4]","[64, 1]",,,,,,"[32, 10]","[64, 8]","[32, 10]","[32, 10]",,"[64, 1]",,"[64, 10]","[64, 1]"
+-GPUTPCCFDecodeZSLink,"""GPUCA_WARP_SIZE""",,"""GPUCA_WARP_SIZE""","""GPUCA_WARP_SIZE""",,,,,,"""GPUCA_WARP_SIZE""","""GPUCA_WARP_SIZE""","""GPUCA_WARP_SIZE""","""GPUCA_WARP_SIZE""",,64,,"""GPUCA_WARP_SIZE""","""GPUCA_WARP_SIZE"""
+-GPUTPCCFDecodeZSDenseLink,"""GPUCA_WARP_SIZE""",,"[""GPUCA_WARP_SIZE"", 4]","[""GPUCA_WARP_SIZE"", 14]",,,,,,"[""GPUCA_WARP_SIZE"", 14]","""GPUCA_WARP_SIZE""","[""GPUCA_WARP_SIZE"", 22]","[""GPUCA_WARP_SIZE"", 22]",,"[64, 17]",,"[""GPUCA_WARP_SIZE"", 8]","[""GPUCA_WARP_SIZE"", 5]"
++GPUTPCCFDecodeZS,"[128, 4]",,"[64, 4]","[64, 1]",,,,,,"[32, 10]","[64, 8]","[32, 10]","[32, 10]",,"[32, 1]",,"[64, 10]","[64, 1]"
++GPUTPCCFDecodeZSLink,"""GPUCA_WARP_SIZE""",,"""GPUCA_WARP_SIZE""","""GPUCA_WARP_SIZE""",,,,,,"""GPUCA_WARP_SIZE""","""GPUCA_WARP_SIZE""","""GPUCA_WARP_SIZE""","""GPUCA_WARP_SIZE""",,"""GPUCA_WARP_SIZE""",,"""GPUCA_WARP_SIZE""","""GPUCA_WARP_SIZE"""
++GPUTPCCFDecodeZSDenseLink,"""GPUCA_WARP_SIZE""",,"[""GPUCA_WARP_SIZE"", 4]","[""GPUCA_WARP_SIZE"", 14]",,,,,,"[""GPUCA_WARP_SIZE"", 14]","""GPUCA_WARP_SIZE""","[""GPUCA_WARP_SIZE"", 22]","[""GPUCA_WARP_SIZE"", 22]",,"[""GPUCA_WARP_SIZE"", 17]",,"[""GPUCA_WARP_SIZE"", 8]","[""GPUCA_WARP_SIZE"", 5]"
