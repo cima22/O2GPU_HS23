@@ -3,7 +3,7 @@ FROM registry.cern.ch/alisw/slc9-gpu-builder
 RUN mkdir -p /alice_hs23/standalone/events
 WORKDIR /alice_hs23
 
-ENV O2_RELEASE=daily-20260602-0000
+ENV O2_RELEASE=daily-20260722-0000
 RUN git clone https://github.com/AliceO2Group/AliceO2.git O2 && \
     cd O2 && git checkout "$O2_RELEASE"
 
